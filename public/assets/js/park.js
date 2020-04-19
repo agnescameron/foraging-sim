@@ -14,7 +14,8 @@ function growPlants() {
 		.html(plant.symbol)
 		.css({'left': Math.random()*95 + '%', 'top': Math.random()*95 + '%', 'color': plant.color})
 		.click(function() {
-			console.log(`picked a ${$(this).data('plant').name}`)
+			console.log(`picked some ${$(this).data('plant').name}`)
+			$(this).hide();
 		})
 		$('#park').append(plantDiv)
 	}
