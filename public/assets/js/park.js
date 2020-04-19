@@ -2,6 +2,13 @@ import { plants } from './lib/plants.js';
 
 // constants
 const numPlants = 100;
+let basket = [];
+
+function pickPlant(plantDiv) {
+	console.log(`picked some ${plantDiv.data('plant').name}`)
+	basket.push(plantDiv.data('plant'))
+	plantDiv.hide()
+}
 
 function growPlants() {
 	for(let i=0; i<numPlants; i++){
@@ -14,8 +21,7 @@ function growPlants() {
 		.html(plant.symbol)
 		.css({'left': Math.random()*95 + '%', 'top': Math.random()*95 + '%', 'color': plant.color})
 		.click(function() {
-			console.log(`picked some ${$(this).data('plant').name}`)
-			$(this).hide();
+			pickPlant($(this));
 		})
 		$('#park').append(plantDiv)
 	}
