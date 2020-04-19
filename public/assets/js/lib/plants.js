@@ -1,4 +1,4 @@
-const plants = [
+export const plants = [
 
 	{
 		'name': 'mugwort',
