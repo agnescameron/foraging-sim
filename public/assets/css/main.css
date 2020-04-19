@@ -1,4 +1,18 @@
+body {
+	background-color: lightgreen;
+}
+
 .plant {
 	position: absolute;
-	background-color: white;
+}
+
+#basket {
+	position: fixed;
+	top:30px;
+	right: 30px;
+	background-image: url('../img/thank-you-bag.png');
+	height: 100px;
+	width: 100px;
+	background-size: cover;
+	z-index: 2;
 }

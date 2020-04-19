@@ -20,6 +20,7 @@ function growPlants() {
 		.data('plant', plant)
 		.html(plant.symbol)
 		.css({'left': Math.random()*95 + '%', 'top': Math.random()*95 + '%', 'color': plant.color})
+		//note: we *don't* want to use an arrow function here, it's a method on an object
 		.click(function() {
 			pickPlant($(this));
 		})
