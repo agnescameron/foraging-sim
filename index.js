@@ -10,4 +10,4 @@ router.get('/', function (req, res) {
   res.redirect('index.html')
 })
 
-app.listen(3000, () => console.log('simulating a park on port 3000 🌱'));
+app.listen(3000, () => console.log('to visit the park, go to localhost:3000 between the hours of 8am and 10pm 🌱'));

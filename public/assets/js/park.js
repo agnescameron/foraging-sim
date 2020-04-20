@@ -2,11 +2,18 @@ import { plants } from './lib/plants.js';
 
 // constants
 const numPlants = 100;
-let basket = [];
+
+//globals
+let bag = [];
 
 function pickPlant(plantDiv) {
-	console.log(`picked some ${plantDiv.data('plant').name}`)
-	basket.push(plantDiv.data('plant'))
+	// console.log(`picked some ${plantDiv.data('plant').name}`)
+	const plant = plantDiv.data('plant')
+	bag.push(plant)
+	$('#bag-contents').append($('<div/>', {
+			'class': 'bag-item'
+		})
+		.html(plant.name))
 	plantDiv.hide()
 }
 
@@ -30,4 +37,6 @@ function growPlants() {
 
 $(document).ready(function() {
 	growPlants();
+	$('#bag').click(() => $('#bag-contents').show())
+	$('#bag-contents').click(() => $('#bag-contents').hide())
 })
