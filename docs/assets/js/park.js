@@ -15,12 +15,12 @@ function countPlants(bag) {
 	return bag.reduce((totals, plant) => {
 		if(!totals[plant.name]) totals[plant.name] = {
 			name: plant.name,
-			total: 0
+			total: 1
 		}
 		else totals[plant.name].total = totals[plant.name].total + 1;
 
 		return totals;
-	}, {})
+	}, {});
 }
 
 function pickPlant(plantDiv) {
