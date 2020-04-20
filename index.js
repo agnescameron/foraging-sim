@@ -3,7 +3,7 @@ var router = express.Router();
 
 var app = express()
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/docs"));
 
 // define the home page route
 router.get('/', function (req, res) {

@@ -7,13 +7,15 @@ const numPlants = 100;
 let bag = [];
 
 function pickPlant(plantDiv) {
-	// console.log(`picked some ${plantDiv.data('plant').name}`)
 	const plant = plantDiv.data('plant')
 	bag.push(plant)
+
+	//append the item to the bag div
 	$('#bag-contents').append($('<div/>', {
 			'class': 'bag-item'
 		})
 		.html(plant.name))
+
 	plantDiv.hide()
 }
 
