@@ -7,8 +7,16 @@ const numPlants = 100;
 let bag = [];
 
 //finds the number of each plant
+//assignment 3: replace this with
+//a single-line arrow function
 function countPlants(plantName) {
-	return bag.filter((plant) => plant.name===plantName).length;
+	let total = 0;
+
+	for(let i=0; i<bag.length; i++){
+		if(bag[i].name === plantName) total+=1
+	}
+
+	return total;
 }
 
 function pickPlant(plantDiv) {
