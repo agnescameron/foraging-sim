@@ -6,35 +6,23 @@ const numPlants = 100;
 //evil global variable :o 
 let bag = [];
 
-//takes in an unsorted bag, creates a sorted
-//object with the amount of each plant type
-
-//QUESTION 3: replace for loops here with
-//arrow functions
-function countPlants(bag) {
-	return bag.reduce((totals, plant) => {
-		if(!totals[plant.name]) totals[plant.name] = {
-			name: plant.name,
-			total: 1
-		}
-		else totals[plant.name].total = totals[plant.name].total + 1;
-
-		return totals;
-	}, {});
+//finds the number of each plant
+function countPlants(plantName) {
+	return bag.filter((plant) => plant.name===plantName).length;
 }
 
 function pickPlant(plantDiv) {
 	const plant = plantDiv.data('plant')
 	bag.push(plant)
 
-	const totals = countPlants(bag)
-	console.log(totals)
-
 	//append the item to the bag div
 	$('#bag-contents').append($('<div/>', {
 			'class': 'bag-item'
 		})
 		.html(plant.name))
+
+	const total = countPlants(plant.name)
+	console.log(`there are now ${total} ${plant.name} in the bag`)
 
 	plantDiv.hide()
 }
