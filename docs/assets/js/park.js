@@ -6,7 +6,10 @@ const numPlants = 100;
 //evil global variable :o 
 let bag = [];
 
-//finds the number of each plant
+
+//this function calculates the number
+//of plants of a specified type in the bag
+
 //assignment 3: replace this with
 //a single-line arrow function
 function countPlants(plantName) {
@@ -19,6 +22,8 @@ function countPlants(plantName) {
 	return total;
 }
 
+//this function 'picks' a plant from the 
+//field and appends it to the bag
 function pickPlant(plantDiv) {
 	const plant = plantDiv.data('plant')
 	bag.push(plant)
@@ -35,6 +40,8 @@ function pickPlant(plantDiv) {
 	plantDiv.hide()
 }
 
+//this function randomly generates plants on the
+//main 'field' at the start of the simulation
 function growPlants() {
 	for(let i=0; i<numPlants; i++){
 		const plant = plants[Math.floor(Math.random()*plants.length)]
@@ -42,6 +49,7 @@ function growPlants() {
 		let plantDiv = $('<div/>', {
 			'class': `plant ${plant.name}`
 		})
+		//this is the jquery .data() attribute
 		.data('plant', plant)
 		.html(plant.symbol)
 		.css({'left': Math.random()*95 + '%', 'top': Math.random()*95 + '%', 'color': plant.color})
@@ -53,8 +61,11 @@ function growPlants() {
 	}
 }
 
+//this code runs once the document has loaded
 $(document).ready(function() {
 	growPlants();
+
+	//event listeners
 	$('#bag').click(() => $('#bag-contents').show())
 	$('#bag-contents').click(() => $('#bag-contents').hide())
 })
