@@ -1,44 +1,42 @@
 export const plants = [
 
 	{
-		'name': 'mugwort',
+		'name': 'garlic mustard',
 		'symbol': 'ӂ',
 		'color': 'mediumseagreen',
-		'recipes': ['mugwort tea']
+		'recipes': ['mustard greens'],
+		'latinName': 'Alliaria petiolata'
 	},
 
 	{
 		'name': 'japanese knotweed',
 		'symbol': 'Ѫ',
 		'color': 'greenyellow',
-		'recipes': ['knotweed crumble']
-	},
-
-	{
-		'name': 'bitter dock',
-		'symbol': 'Գ',
-		'color': 'forestgreen',
-		'recipes': ['hindbeh']
+		'recipes': ['knotweed crumble'],
+		'latinName': 'Reynoutria japonica'
 	},
 
 	{
 		'name': 'wild garlic',
 		'symbol': '҂',
 		'color': 'limegreen',
-		'recipes': ['wild garlic pesto']
+		'recipes': ['wild garlic pesto'],
+		'latinName': 'Allium ursinum'
 	},
 
 	{
 		'name': 'dandelion greens',
 		'symbol': '෴',
 		'color': 'olivedrab',
-		'recipes': ['hindbeh']
+		'recipes': ['hindbeh'],
+		'latinName': 'Taraxacum'
 	},
 
 	{
 		'name': 'nettles',
 		'symbol': 'ʬ',
 		'color': 'seagreen',
-		'recipes': ['nettle soup']
+		'recipes': ['nettle soup'],
+		'latinName': 'Urtica dioica'
 	}
 ]

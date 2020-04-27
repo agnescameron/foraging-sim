@@ -22,6 +22,18 @@ function countPlants(plantName) {
 	return total;
 }
 
+async function getPlantInfo(plant) {
+	const requestString = plant.latinName.replace('/\s/', '_') // a regex! this replaces spaces with underscores
+	fetch('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/wiki/' + requestString)
+	.then((response) => {
+		return response.text();
+	}).then((data) => {
+		var infoDiv = $('div.shortdescription.nomobile.noexcerpt.noprint.searchaux', $(data));
+		console.log(plant, infoDiv[0].innerHTML)
+		plant.info = infoDiv[0].innerHTML;
+	});
+}
+
 //this function 'picks' a plant from the 
 //field and appends it to the bag
 function pickPlant(plantDiv) {
@@ -32,7 +44,7 @@ function pickPlant(plantDiv) {
 	$('#bag-contents').append($('<div/>', {
 			'class': 'bag-item'
 		})
-		.html(plant.name))
+		.html('<b>' + plant.name + ':</b><br>' + plant.info))
 
 	const total = countPlants(plant.name)
 	console.log(`there are now ${total} ${plant.name} in the bag`)
@@ -65,6 +77,9 @@ function growPlants() {
 $(document).ready(function() {
 	growPlants();
 
+	plants.forEach(function(plant){
+		getPlantInfo(plant)
+	})
 	//event listeners
 	$('#bag').click(() => $('#bag-contents').show())
 	$('#bag-contents').click(() => $('#bag-contents').hide())
