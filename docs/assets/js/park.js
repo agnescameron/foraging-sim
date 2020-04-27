@@ -21,14 +21,14 @@ function countPlants(plantName) {
 
 async function getPlantInfo(plant) {
 	const requestString = plant.latinName.replace('/\s/', '_') // a regex! this replaces spaces with underscores
-	fetch('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/wiki/' + requestString)
-	.then((response) => {
-		return response.text();
-	}).then((data) => {
-		var infoDiv = $('div.shortdescription.nomobile.noexcerpt.noprint.searchaux', $(data));
-		console.log(plant, infoDiv[0].innerHTML)
-		plant.info = infoDiv[0].innerHTML;
-	});
+fetch('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/wiki/' + requestString)
+.then((response) => {
+	return response.text();
+}).then((data) => {
+	var infoDiv = $('div .shortdescription', $(data));
+	console.log(plant, infoDiv[0].innerHTML)
+	plant.info = infoDiv[0].innerHTML;
+});
 }
 
 //this function 'picks' a plant from the 
