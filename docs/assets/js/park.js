@@ -1,8 +1,5 @@
 import { plants } from './lib/plants.js';
 
-// constants
-const numPlants = 100;
-
 //evil global variable :o 
 let bag = [];
 
@@ -54,7 +51,8 @@ function pickPlant(plantDiv) {
 
 //this function randomly generates plants on the
 //main 'field' at the start of the simulation
-function growPlants() {
+function growPlants(numPlants) {
+	console.log('growing'+ numPlants+ 'plants')
 	for(let i=0; i<numPlants; i++){
 		const plant = plants[Math.floor(Math.random()*plants.length)]
 
@@ -75,11 +73,14 @@ function growPlants() {
 
 //this code runs once the document has loaded
 $(document).ready(function() {
-	growPlants();
+	growPlants(100);
 
 	plants.forEach(function(plant){
 		getPlantInfo(plant)
 	})
+
+	window.setInterval(function(){ growPlants(10); }, 10000);
+
 	//event listeners
 	$('#bag').click(() => $('#bag-contents').show())
 	$('#bag-contents').click(() => $('#bag-contents').hide())
